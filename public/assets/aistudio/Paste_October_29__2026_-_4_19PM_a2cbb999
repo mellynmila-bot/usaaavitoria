@@ -1,0 +1,384 @@
+PRD – Site One Page Institucional: VIVA Beauty | Vitória Reis (@vivabeautymv)
+Cliente: Vitória Reis – VIVA Beauty • Lash Extensions & Brow Design • Edgartown, Martha’s Vineyard, MA 🇺🇸 Tagline: Where beauty lives lightly (Onde a beleza vive leve) Tipo: Site one page institucional, elegante, sofisticado e otimizado para Google e IAs Idiomas: Português do Brasil (padrão) + opção clara de inglês no cabeçalho. Rodapé e modais legais em inglês. Agendamento: online pelo Vagaro (prioridade) ou pelo WhatsApp +1 (774) 310-0841 Destino: Google AI Studio (gerar o site completo a partir deste documento)
+1. Instrução principal para a IA
+Crie um site one page institucional para VIVA Beauty, da Vitória Reis, especialista em extensão de cílios, lash lift e design de sobrancelhas em Edgartown, Martha’s Vineyard (Massachusetts), atendendo somente com hora marcada. A marca une naturalidade, elegância e acolhimento (“a sua beleza, com alma”). O site deve transmitir calor, sofisticação e luxo discreto, com marrom que imita madeira, bege claro e dourado com efeito espelhado. Use React + Tailwind CSS + Framer Motion (ou HTML/CSS/JS puro com IntersectionObserver), 100% responsivo (mobile-first, o público vem do Instagram) e acessível (WCAG 2.1 AA / ADA). Entregue o site completo, com todas as seções abaixo na ordem indicada.
+Regras de ouro
+1. Toda seção tem título + subtítulo de impacto (copy que cria conexão) e um botão de agendar.
+2. Todos os botões de agendar levam ao agendamento online no Vagaro (seção 5), em nova aba. O WhatsApp é a alternativa, oferecida na seção Agendamento e no botão flutuante secundário.
+3. Todos os links de imagem devem ser usados exatamente como estão neste PRD.
+4. Valores em dólares (USD), exatamente como informados.
+5. Site em português com seletor PT | EN visível no cabeçalho (seção 4).
+6. SEO interno completo, pensado para Google e IAs recomendarem (seção 8).
+7. Linguagem responsável: sem promessas absolutas. Resultado e duração variam de pessoa para pessoa; avaliação e teste de alergia fazem parte do processo.
+2. Identidade visual
+Tema: “beleza que vive leve”. Madeira clara e escura, luz quente, reflexos dourados. Ornamento discreto em traço fino dourado (ramo/folha e pequena estrela de brilho).
+Paleta (bege claro, marrom madeira, dourado)
+• Bege claro #F6EFE4 e areia #EADFCC
+• Marrom madeira #5A3E2B (escuro), #7A5539 (nogueira) e #A47B57 (mel), para as seções de contraste
+• Dourado #C29F5B (principal), dourado claro #F2DFA7 (brilho), dourado antigo #8F7030 (texto dourado sobre claro)
+• Texto sobre claro: #3F2E22; sobre madeira: #F6EFE4
+Efeito madeira (usar com sutileza) — textura de veios nas seções marrons, em CSS/SVG, sem imagens externas:
+--wood: repeating-linear-gradient(92deg, rgba(255,255,255,0.03) 0 2px, rgba(0,0,0,0.05) 2px 6px, rgba(255,255,255,0.02) 6px 11px), linear-gradient(180deg, #6A4A33 0%, #5A3E2B 55%, #4B3322 100%);
+Sobre a madeira, blocos de texto sempre em cards marfim (ou texto marfim com contraste mínimo 4.5:1). Faixas e molduras com aspecto de moldão de madeira (veio horizontal + filete dourado).
+Dourado espelhado (metal polido) — variável para bordas, filetes, ícones, botões e títulos de destaque:
+--gold-mirror: linear-gradient(135deg, #8F6F2E 0%, #F2DFA7 20%, #C9A24D 40%, #FFF3C9 55%, #B08A3A 75%, #E8D08A 100%);
+--gold-glow: 0 0 22px rgba(214, 174, 87, 0.32);
+• Botão primário: fundo --gold-mirror, texto marrom escuro, glow suave e feixe de luz deslizante no hover. Secundário: contorno --gold-mirror.
+• Molduras das fotos: borda de 2px com --gold-mirror, segunda linha deslocada e reflexo diagonal lento.
+• Títulos de destaque: palavras-chave em gradiente dourado (em texto grande; usar #8F7030 onde o contraste for baixo).
+• Cards com cantos suaves (10px), fundo marfim, borda dourada fina.
+• Divisores: filete dourado espelhado com pequena estrela central.
+Alternância de fundos (intercalando bege claro e madeira)
+#
+Seção
+Fundo
+1
+Hero
+Bege claro com brilho dourado
+–
+Faixa dourada em loop
+Dourado espelhado
+2
+Serviços
+Marrom madeira
+3
+Galeria
+Bege claro
+4
+Sobre + Instagram
+Marrom madeira (nogueira)
+5
+Feedbacks
+Bege claro
+6
+Studio + Localização
+Marrom madeira
+7
+Agendamento
+Bege claro
+8
+FAQ
+Marrom madeira
+9
+Rodapé
+Bege claro, discreto
+Tipografia (Google Fonts)
+• Títulos: Libre Caslon Display (palavras-chave em dourado antigo)
+• Corpo e botões: Karla (rótulos em maiúsculas pequenas, espaçadas)
+• Assinatura: Pinyon Script
+• Logo: usar a imagem do logo na seção Studio (6.6); na navbar, versão textual “VIVA” em serifada espaçada com “Beauty” pequeno.
+Faixa dourada em loop (entre Hero e Serviços)
+Barra em largura total, dourado espelhado com brilho, texto marrom escuro, em loop infinito, separadas por ✦: BEAUTY ✦ LASH DESIGNER ✦ BROW DESIGN ✦ MARTHA’S VINEYARD ✦ ONDE A BELEZA VIVE LEVE ✦ NATURALIDADE ✦ ELEGÂNCIA ✦ (EN: BEAUTY ✦ LASH DESIGNER ✦ BROW DESIGN ✦ MARTHA’S VINEYARD ✦ WHERE BEAUTY LIVES LIGHTLY ✦ NATURAL ✦ ELEGANT ✦) Obrigatório: botão de pause/play visível (ícone com aria-label), pausa também no hover e no foco, e texto estático com prefers-reduced-motion.
+3. Animações
+• Cada seção entra com fade-in + slide-up (uma vez), conteúdo interno em cascata.
+• Filetes e molduras douradas que se desenham ao entrar; reflexo diagonal lento.
+• Hero: título linha a linha, foto com leve parallax e glow suave.
+• Navbar transparente no topo, vira bege com borda dourada ao rolar.
+• Hover: zoom suave nas fotos, elevação nos cards.
+• Carrosséis e faixas em loop com botão de pausa.
+• prefers-reduced-motion respeitado; scroll suave.
+4. Idiomas (PT-BR + EN)
+• Padrão: português (BR). No cabeçalho, seletor PT | EN bem visível, em pílula com borda dourada espelhada e rótulo claro (“Read in English” / “Ler em português”), também no menu mobile, visível sem abrir o menu.
+• Troca instantânea de todo o conteúdo, via translations.pt / translations.en, escolha em localStorage (com try/catch), <html lang> dinâmico (pt-BR / en-US).
+• Textos PT deste PRD são a versão final. Em EN, usar as versões dadas (incluindo os textos originais em inglês dos serviços e da política) e traduzir fielmente o restante.
+• Rodapé e modais legais sempre em inglês.
+5. Dados e links (usar exatamente)
+• Agendamento online (Vagaro, todos os botões de agendar): https://www.vagaro.com/vitoriareisbeauty?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAcGRvZgJzcnRjBmFwcF9pZA85MzY2MTk3NDMzOTI0NTkAAadMIKOcQs-g4YtYy0ESXUK6XW1-GCxtk1yekzgIf6X94Nw8G2SDZMj5wUk5og_aem_WUfaIypNcoDtIE_Vse8Yxg. Guardar em bookingUrl. (O segundo link enviado é o mesmo Vagaro dentro do redirecionador do Instagram l.instagram.com; foi usado o link direto.)
+• WhatsApp (alternativa): +1 (774) 310-0841 → https://wa.me/17743100841?text=<mensagem>. Guardar em whatsappPhone. Confirmar se o número recebe WhatsApp.
+• Instagram: @vivabeautymv → https://www.instagram.com/vivabeautymv/ (link montado a partir do usuário informado).
+• Reel (seção Sobre): https://www.instagram.com/reel/De11_MARTBj/
+• Post do espaço (seção Studio): https://www.instagram.com/p/Dcd1Xj9O_FB/
+• Localização: Edgartown, MA 02539 (endereço completo não informado; atendimento somente com hora marcada).
+Horário de funcionamento (America/New_York):
+Dia
+Horário
+Segunda a sexta
+8:30 AM – 7:00 PM
+Sábado
+8:30 AM – 5:00 PM
+Domingo
+Fechado
+⚠ufe0f A lista de horários veio com 7 valores para 6 dias; foi interpretada como segunda a sexta 8:30–7:00, sábado 8:30–5:00 e domingo fechado. Confirmar com a Vitória.
+Políticas de cancelamento (vêm em duas versões diferentes):
+• Pelo Vagaro (original): cancelamentos/remarcações com 24 horas de antecedência; cancelamento tardio ou falta: 50% do serviço; mais de 10 minutos de atraso pode encurtar o serviço ou exigir reagendamento, com taxa.
+• Pelo WhatsApp (dela): cancelamentos/alterações com 12 horas de antecedência; menos de 12 horas ou falta: 50%; tolerância de atraso de 10 minutos; chegar com 5 minutos de antecedência.
+• ⚠️ As duas políticas divergem (24h x 12h). No site, mostrar cada política no seu canal (seção 6.7) e confirmar com a Vitória se deseja unificar. Guardar em siteData.policies.
+Tudo em um único objeto siteData.
+6. Seções (na ordem)
+Navbar (fixa)
+• Logo textual “VIVA · Beauty”.
+• Links: Serviços · Galeria · Sobre · Avaliações · Studio · FAQ (EN: Services · Gallery · About · Reviews · Studio · FAQ)
+• Seletor PT | EN e botão dourado Agendar (Vagaro).
+• Mobile: hambúrguer com painel bege com detalhe de madeira. Link “Skip to content”.
+6.1 Hero
+Layout: duas colunas; texto e cards sutis à esquerda; foto dela à direita em arco (topo arredondado) com moldura dourada espelhada, glow e reflexo; um filete de moldão de madeira na base. Foto: https://i.ibb.co/BVQY5SMZ/Woman-centered-on-beige-background-df9fa9e2-2-K-1.webp
+• Eyebrow: LASH EXTENSIONS & BROW DESIGN • MARTHA’S VINEYARD
+• Título: Onde a beleza vive leve (EN: Where beauty lives lightly)
+• Subtítulo: Extensão de cílios e design de sobrancelhas em Edgartown, Martha’s Vineyard, com naturalidade, elegância e cuidado em cada detalhe. A sua beleza, com alma. (EN: Lash extensions and brow design in Edgartown, Martha’s Vineyard, with naturalness, elegance and care in every detail. Your beauty, with soul.)
+• Botões: Agendar online (Vagaro) · Ver serviços (#servicos)
+Cards sutis (cantos suaves, borda dourada fina, ícone fino, fundo semitransparente):
+• 📍 Edgartown, Martha’s Vineyard
+• 📅 Somente com hora marcada
+• 🌿 Naturalidade e elegância, do discreto ao volume marcante
+6.2 Serviços (nome, foto, descrição e valores)
+• Título: Cada olhar, desenhado para você (EN: Every look, designed for you)
+• Subtítulo: Do natural ao volume marcante, escolha o efeito que combina com o formato dos seus olhos e com a sua rotina. (EN: From natural to bold volume, choose the effect that suits your eye shape and routine.)
+Layout: grupos em abas ou chips: Extensão de cílios · Lash Lift e Laminação · Sobrancelhas · Wax. Cada serviço em card (grid 2 colunas desktop, 1 mobile) com foto (moldura dourada), nome, descrição, valores (tabela pequena: Set / Fill) em destaque dourado e botão Agendar (Vagaro).
+⚠ufe0f Fotos dos serviços: não foram enviadas fotos por serviço. Reaproveitar as fotos da galeria (ordem 1 a 8, em rotação) e guardar em siteData.services[i].image para troca fácil. Confirmar com a Vitória qual foto representa cada serviço.
+Extensão de cílios
+Serviço
+Descrição
+Valores
+Eyelash Extension Set
+Extensão personalizada para a anatomia única dos seus olhos e as suas preferências. Do discreto ao volume marcante, em tons de marrom ou preto, sempre com cuidado pelos seus cílios naturais.
+Set $190 · Fill 2 semanas $90 · Fill 3 semanas $130
+Fox Eyes
+Set criado para o efeito fox eyes: cílios com curvatura especial, diferentes dos tradicionais, que realçam a sua beleza natural e dão um lift sedutor ao olhar.
+Set $195 · Fill 2 semanas $95 · Fill 3 semanas $130
+Half Fox
+Preenche apenas a metade externa dos cílios, criando um olhar alongado e marcante. Pode não combinar com todos os formatos de olho: recomenda-se consulta antes da aplicação.
+Set $150 · Fill 2 semanas $80 · Fill 3 semanas $100
+Diamond
+Técnica com durabilidade de 30 dias e sem manutenção. Para quem ama cílios bem volumosos.
+$225
+Lower Eyelash Extension
+Realça os cílios inferiores, criando um olhar mais aberto, harmonioso e equilibrado com os cílios superiores.
+Set $60 · Fill $45
+Consulta e teste de alergia / Consultation & allergy test
+Avaliação completa para extensão de cílios e teste de alergia para quem já teve reações, garantindo segurança e conforto.
+$10
+Remoção / Removal
+Remoção cuidadosa das extensões de cílios.
+$20
+Lash Lift e Laminação
+Serviço
+Descrição
+Valores
+Lash Lift
+Realça a curvatura natural dos cílios, com efeito de rímel sem extensões. Cílios lindamente levantados por semanas, com pouca manutenção conforme crescem.
+$130
+Brow Lamination
+Alinha e suaviza os fios, deixando as sobrancelhas mais preenchidas e com acabamento polido, sem que os fios precisem ficar em pé, para um resultado natural.
+$130
+Sobrancelhas
+Serviço
+Descrição
+Valores
+Eyebrow Design (Wax)
+Design de sobrancelhas com cera, mapeando o formato que valoriza o seu rosto.
+Design $35 · Design + Tinting $45
+Eyebrow Design (Tweezers)
+Design de sobrancelhas com pinça, para um acabamento preciso e delicado.
+Design $40 · Design + Tint $50
+Wax
+Serviço
+Descrição
+Valores
+Full Face (Wax)
+Depilação do rosto inteiro com cera.
+$30
+Upper Lip (Wax)
+Depilação rápida do buço com cera.
+$8
+Nota geral (pequena, sob os cards): Valores em USD, sujeitos a alteração. Avaliação e teste de alergia fazem parte do processo. Duração e resultado variam de pessoa para pessoa. (EN: translate)
+Botão da seção: Agendar online.
+6.3 Galeria
+• Título: Delicadeza que se vê nos detalhes (EN: Delicacy you can see in the details)
+• Subtítulo: Olhares naturais, elegantes e feitos fio a fio. (EN: Natural, elegant looks made lash by lash.)
+8 fotos em grid (4×2 desktop largo, 2 colunas mobile), moldura dourada espelhada com reflexo no hover, zoom suave. Lightbox ao clicar: tela cheia, fundo escuro translúcido, setas esquerda/direita, X, contador (“3 / 8”), teclado, swipe e foco preso.
+Fotos (8):
+1. https://i.ibb.co/sv0fQkm6/Save-Clip-App-502750164-18274157707273750-1858778717235580088-n.webp
+2. https://i.ibb.co/CKVXWWyP/Save-Clip-App-792224139-18334271179273750-5704973687369538933-n.webp
+3. https://i.ibb.co/QFtQwZ6K/Save-Clip-App-574795826-18291793921273750-357611073181160755-n.webp
+4. https://i.ibb.co/fVhVZdb9/Save-Clip-App-553315913-18286694992273750-27668105877423278-n-2.webp
+5. https://i.ibb.co/5gyHpt6Q/Save-Clip-App-475527991-18261498415273750-1802396124170892663-n.webp
+6. https://i.ibb.co/TxxbHyC3/Save-Clip-App-468299115-18253012414273750-2166962317424031583-n.webp
+7. https://i.ibb.co/PscFfx0R/Save-Clip-App-624852285-2378107205945966-8613370480405345928-n.webp
+8. https://i.ibb.co/SDgZjzsD/Save-Clip-App-468267452-18253010392273750-8812094926490098533-n.webp
+Nota pequena: Resultados individuais podem variar. Botão: Quero um olhar assim (Vagaro).
+6.4 Sobre + Instagram
+Layout (Sobre): duas colunas; foto dela em arco com moldura dourada espelhada e reflexo; ao lado, título, frase, parágrafos e indicadores (cards de texto em marfim sobre a madeira). Foto: https://i.ibb.co/gFyxxV7Y/Woman-positioned-in-middle-59d24503-2-K-1.webp
+• Título: Conheça a Vitória Reis (EN: Meet Vitória Reis)
+• Subtítulo: Uma especialista em cílios e sobrancelhas que valoriza o natural, com elegância e alma. (EN: A lash and brow specialist who celebrates natural beauty, with elegance and soul.)
+• Frase (serifada itálica, aspas douradas, assinatura em Pinyon Script; frase real do lançamento da marca): “Hoje nasce algo que pulsa junto com o meu propósito.” — Vitória Reis (EN: “Today something is born that beats in time with my purpose.”)
+• Parágrafo 1 (emocional): VIVA é mais que uma marca de beleza. É um espaço onde a naturalidade é valorizada, a elegância é sentida e cada detalhe é pensado com carinho. Aqui, você vai encontrar mais que estética: vai encontrar cuidado, acolhimento e transformação.
+• Parágrafo 2 (técnico): Com mais de 4 anos de experiência, a Vitória é especialista em extensão de cílios e design de sobrancelhas, sempre focada em realçar a beleza natural de forma elegante e personalizada. Cada atendimento começa com uma avaliação da anatomia dos seus olhos e das suas preferências, com teste de alergia quando necessário, para um resultado seguro, confortável e feito sob medida.
+• Indicadores animados (sem números inventados): +4 anos de experiência · Lash & Brow Design · Atendimento personalizado · Martha’s Vineyard
+• Linha discreta (só exibe se preenchida em siteData): Licenses: [ ]
+Botão: Agendar com a Vitória (Vagaro).
+Instagram (sub-bloco no fim da seção, com divisor dourado):
+• Subtítulo: Acompanhe a VIVA no Instagram (EN: Follow VIVA on Instagram) · Bastidores, transformações e inspiração para o seu olhar, todos os dias. (EN: Behind the scenes, transformations and inspiration for your look, every day.)
+• Avatar com anel dourado, @vivabeautymv, botão Seguir no Instagram (https://www.instagram.com/vivabeautymv/, nova aba).
+• Reel integrado, reproduzível no próprio site: https://www.instagram.com/reel/De11_MARTBj/ via embed oficial (iframe https://www.instagram.com/reel/De11_MARTBj/embed), centralizado, moldura dourada, largura máx. ~400px. Sem capa, thumbnail ou imagem de pré-visualização personalizada.
+Botões: Seguir @vivabeautymv · Agendar (Vagaro).
+6.5 Feedbacks (6, com 5 estrelas)
+• Título: Quem sente o cuidado, volta (EN: Those who feel the care come back)
+• Subtítulo: Palavras de clientes que escolheram a VIVA para o seu olhar. (EN: Words from clients who chose VIVA for their look.)
+Grid 3×2 (desktop) ou carrossel (mobile, com pausa e setas), cards marfim com borda dourada, 5 estrelas douradas com brilho, aspas decorativas, texto, nome e serviço.
+⚠️ Todos são textos de exemplo. Nos EUA, a FTC proíbe avaliações falsas: substituir por avaliações reais (Instagram, Google, Vagaro), com autorização, antes de publicar.
+#
+Nome
+Serviço
+Depoimento
+1
+Camila R.
+Eyelash Extension Set
+“Ficaram leves, naturais e elegantes. A Vitória é muito cuidadosa com cada detalhe.”
+2
+Sophie M.
+Fox Eyes
+“The lift is gorgeous and so natural. A calm, welcoming experience from start to finish.”
+3
+Fernanda L.
+Brow Lamination
+“Minhas sobrancelhas ficaram penteadas e preenchidas, sem parecer artificial.”
+4
+Juliana P.
+Lash Lift
+“Amei o efeito de rímel sem precisar de extensões. Super prático!”
+5
+Emma T.
+Half Fox
+“She explained everything in the consultation and the result suits my eyes perfectly.”
+6
+Mariana S.
+Eyebrow Design + Tint
+“Atendimento acolhedor e um resultado delicado. Já marquei a próxima!”
+Botão: Quero viver essa experiência (Vagaro).
+6.6 Studio + Localização
+• No início da seção, o logo do studio (centralizado, tamanho médio, moldura dourada fina): https://i.ibb.co/rGmQDrqH/Logo-facing-forward-with-text-82be14b9-2-K.webp
+• Título: Mais que um studio, um espaço com alma (EN: More than a studio, a space with soul)
+• Subtítulo: Naturalidade, elegância e acolhimento em cada detalhe, em Edgartown. (EN: Naturalness, elegance and warmth in every detail, in Edgartown.)
+• Texto da marca (do Instagram dela, em card marfim): VIVA é mais que uma marca de beleza. É um espaço onde a naturalidade é valorizada, a elegância é sentida, e cada detalhe é pensado com carinho. Aqui, você vai encontrar mais que estética. Vai encontrar cuidado, acolhimento e transformação.
+• Frase entre aspas (serifada itálica, aspas douradas): “Seja bem-vinda à VIVA: a sua beleza, com alma.” (EN: “Welcome to VIVA: your beauty, with soul.”)
+• Fotos do espaço (6), em carrossel infinito (loop contínuo, autoplay lento, botão de pausa, setas laterais), moldura dourada. Ao clicar, abre expandida (lightbox) com seta para passar, X, teclado e swipe:
+    1. https://i.ibb.co/C3V2hpHJ/Remove-text-and-improve-quality-545fb1e6-2-K.webp
+    2. https://i.ibb.co/4nyt4mqY/Remove-objects-from-photo-d0b2d97f-2-K.webp
+    3. https://i.ibb.co/84KfWgZ2/Remove-objects-from-photo-00f21eee-2-K.webp
+    4. https://i.ibb.co/tw4rWJQR/Remove-objects-from-photo-146a882e-2-K.webp
+    5. https://i.ibb.co/p6t4Ckdw/Remove-objects-from-photo-c7106b26-2-K.webp
+    6. https://i.ibb.co/jk9R5S2K/Remove-text-from-photo-960271ac-2-K.webp
+• Post integrado (preparação do espaço para receber as clientes): https://www.instagram.com/p/Dcd1Xj9O_FB/ via embed oficial (iframe https://www.instagram.com/p/Dcd1Xj9O_FB/embed), com título pequeno Nos bastidores: preparando tudo para você (EN: Behind the scenes: getting everything ready for you), moldura dourada, largura máx. ~400px. Sem capa nem imagem de pré-visualização personalizada.
+• Cards (cantos suaves, borda dourada, ícone fino), grid 3×2: Higiene (materiais esterilizados e descartáveis, espaço preparado antes de cada cliente) · Conforto (ambiente calmo e acolhedor) · Privacidade (atendimento reservado, somente com hora marcada) · Fácil acesso (Edgartown; confirmar estacionamento e acesso) · Atenção exclusiva (um horário reservado só para você) · Produtos de qualidade (materiais selecionados e teste de alergia quando necessário).
+• Localização: card com Edgartown, MA 02539, United States. Google Maps integrado: <iframe> (https://www.google.com/maps?q=Edgartown,+MA+02539&output=embed), largura total, moldura dourada, loading=lazy, title, altura 380–450px. Como o endereço completo não foi informado, mostrar o aviso O endereço exato é enviado ao confirmar o agendamento e o campo siteData.studioAddress para preencher depois (quando preenchido, o mapa e o botão Como chegar usam o endereço).
+• Horário de funcionamento (card, horários da seção 5, dia atual destacado no fuso America/New_York, estado “Aberto agora / Fechado”): Somente com hora marcada.
+Botão: Agendar minha visita (Vagaro).
+6.7 Agendamento (online primeiro) + educação
+• Título: Seu horário, reservado só para você (EN: Your appointment, reserved just for you)
+• Subtítulo: Agende online em poucos cliques. Se preferir, fale com a Vitória pelo WhatsApp. (EN: Book online in a few clicks. If you prefer, message Vitória on WhatsApp.)
+Layout em 2 colunas (fundo bege claro, cards marfim com borda dourada, detalhes de madeira).
+Coluna 1: Agendar online (prioridade, card maior com destaque dourado):
+• Agendar online no Vagaro (botão grande dourado, bookingUrl, nova aba). Texto: O jeito mais rápido: escolha o serviço, o dia e o horário, e gerencie o seu agendamento no Vagaro.
+• Política (Vagaro): Cancelamentos ou remarcações com pelo menos 24 horas de antecedência. Cancelamentos tardios (menos de 24 horas) ou faltas estão sujeitos a uma taxa de 50% do serviço. Chegar com mais de 10 minutos de atraso pode resultar em serviço reduzido ou necessidade de reagendar, com taxa de cancelamento. (EN: use o texto original em inglês dado pela cliente.)
+Coluna 2: Prefere o WhatsApp? (alternativa):
+• Política de cancelamento (WhatsApp): Cada horário agendado é reservado exclusivamente para você. Cancelamentos ou alterações devem ser feitos com, no mínimo, 12 horas de antecedência. Cancelamentos com menos de 12 horas ou ausência estarão sujeitos à cobrança de 50% do valor do serviço agendado. A tolerância de atraso é de 10 minutos: programe-se para chegar com pelo menos 5 minutos de antecedência. (EN: translate)
+• Frase de agradecimento: Essa política é essencial para garantir o meu tempo e o meu compromisso com cada cliente. Agradeço pela sua compreensão e apoio!
+⚠️ As duas políticas divergem (24h no Vagaro e 12h no WhatsApp): a Vitória deve confirmar se deseja unificar.
+Cards educativos (ícones finos):
+• ⏰ Atraso: a tolerância é de 10 minutos; chegue com 5 minutos de antecedência.
+• 👁️ Cílios: venha sem maquiagem nos olhos e informe alergias, sensibilidade ou tratamentos recentes.
+• 🔍 Primeira vez? Agende a consulta e teste de alergia, que garante segurança e conforto.
+• 🔁 Manutenção: escolha o Fill de 2 ou 3 semanas conforme o seu ciclo.
+• 📸 Referência: se tiver foto do efeito desejado, envie na conversa.
+Mini formulário (sem <form>, usar onClick/onChange; todos os campos com <label> visível):
+• Como gostaria de ser chamada(o)? (texto)
+• Serviço (todos os serviços da seção 6.2, mais “Consulta e teste de alergia” e “Ainda não sei”)
+• Tipo (Primeira vez · Fill de 2 semanas · Fill de 3 semanas · Vindo de outra profissional)
+• Melhor dia (campo de data) e melhor horário (período ou hora, dentro do funcionamento)
+• Tem foto de referência? (Sim, vou enviar na conversa / Não tenho)
+• Alergias ou algo que devemos saber? (opcional)
+Mensagem pronta (pré-visualização em tempo real) em uma caixa elegante, atualizada a cada campo, com Copiar mensagem e Enviar pelo WhatsApp (abre https://wa.me/17743100841?text= + mensagem com encodeURIComponent, nova aba). Texto de apoio: Prefere agendar online? Use o botão do Vagaro acima.
+Modelo (PT): Olá, Vitória! 💛 Gostaria de agendar um horário. Nome: {nome} Serviço: {serviço} Tipo: {tipo} Dia e horário: {dia} {horário} Foto de referência: {sim/não} Observações: {obs} (EN: traduzir naturalmente)
+6.8 FAQ (accordion acessível, borda dourada)
+• Título: Perguntas frequentes (EN: Frequently asked questions)
+• Subtítulo: Tudo o que você precisa saber antes de agendar. (EN: Everything you need to know before booking.)
+1. Como faço para agendar? O jeito mais rápido é online, pelo Vagaro. Se preferir, preencha o mini formulário e envie pelo WhatsApp.
+2. O atendimento é somente com hora marcada? Sim, a VIVA atende exclusivamente com agendamento.
+3. Qual a diferença entre Eyelash Extension Set, Fox Eyes e Half Fox? O Set é personalizado do discreto ao volume marcante. O Fox Eyes usa cílios com curvatura especial para um lift sedutor. O Half Fox preenche só a metade externa, para um olhar alongado.
+4. O que é o Diamond? Técnica com durabilidade de 30 dias e sem manutenção, para quem ama cílios bem volumosos.
+5. Quando faço o Fill? Aos 2 ou 3 semanas, conforme o seu ciclo natural de crescimento. Os valores de cada Fill estão na seção de serviços.
+6. Preciso fazer consulta antes? Na primeira vez, recomenda-se a consulta com teste de alergia, principalmente se você já teve reações.
+7. Tenho alergia. Posso fazer? Informe antes. A consulta inclui avaliação e teste de alergia para garantir segurança e conforto.
+8. O que é Lash Lift? Realça a curvatura natural dos seus cílios, com efeito de rímel e sem extensões, com pouca manutenção conforme crescem.
+9. O que é Brow Lamination? Alinha e suaviza os fios para sobrancelhas mais preenchidas e polidas, com acabamento natural.
+10. E se eu me atrasar? A tolerância é de 10 minutos. Acima disso, o serviço pode ser encurtado ou reagendado, com taxa de cancelamento.
+11. E se eu precisar remarcar ou cancelar? Veja a política: 24 horas de antecedência pelo Vagaro e 12 horas pelo WhatsApp. Cancelamentos tardios ou faltas têm taxa de 50%.
+12. Onde fica a VIVA e qual o horário? Em Edgartown, Martha’s Vineyard. Segunda a sexta, 8:30 AM–7:00 PM; sábado, 8:30 AM–5:00 PM; domingo fechado.
+Botão final: Agendar meu horário (Vagaro).
+6.9 Rodapé (discreto, EUA, conforme ADA; em inglês)
+Visual: fundo bege claro, filete dourado espelhado no topo, tipografia pequena (text-xs/text-sm), centralizado. Cor do texto de baixo contraste visual, mas com contraste mínimo de 4.5:1 (WCAG AA): #6B5545 sobre #F6EFE4 (~6:1). Links com foco visível e sublinhado ao hover/foco.
+• Linha 1 (copyright): © 2026 [Professional Name]. All rights reserved.
+• Linha 2 (links lado a lado, texto acessível): Privacy Policy · Terms of Service, abrindo modais na mesma página.
+• Linha opcional (só exibe se preenchida): License No. [ ].
+Modais legais (em inglês, acessíveis: foco preso, X e Esc fecham, role=dialog, aria-modal):
+⚠️ Texto-modelo, a ser revisado por um advogado antes de publicar.
+• Privacy Policy: who we are; information collected (name, phone, service of interest, preferred times, messages via the form and WhatsApp; allergy or eye-health details you choose to share; photos only with consent; booking data handled by Vagaro under its own policy); use (scheduling, service, client records; never sold); third parties (Vagaro, WhatsApp/Meta, Instagram and Google Maps embeds); security and retention; your choices (access, correction, deletion); children (not directed to children under 13); contact [E-mail].
+• Terms of Service: content is general information; clients must disclose allergies and eye or skin conditions; consultation and allergy test as indicated; booking through Vagaro or WhatsApp; cancellation policy (24 hours via Vagaro, 12 hours via WhatsApp [to be confirmed], 50% fee for late cancellations and no-shows, 10-minute grace period); results and retention vary; liability limited as permitted by law; governing law: Commonwealth of Massachusetts; accessibility statement (WCAG 2.1 AA).
+7. Botões flutuantes
+Canto inferior direito, dois botões discretos: Agendar (dourado espelhado com glow, abre o Vagaro) e, menor, WhatsApp (contorno dourado, abre o WhatsApp com a mensagem padrão). Visíveis após o hero, alvo de toque mínimo 44×44px.
+8. SEO interno (Google + IAs, mercado dos EUA)
+Técnico
+• <html lang> dinâmico; âncoras #servicos, #galeria, #sobre, #avaliacoes, #studio, #agendamento, #faq.
+• Title EN: “VIVA Beauty | Lash Extensions, Lash Lift & Brow Design in Edgartown, Martha’s Vineyard”. Title PT: “VIVA Beauty | Extensão de Cílios e Design de Sobrancelhas em Martha’s Vineyard”.
+• Meta description PT (~155 car.): “Extensão de cílios, Fox Eyes, lash lift, brow lamination e design de sobrancelhas em Edgartown, Martha’s Vineyard. Agende online com a Vitória Reis.” EN equivalente.
+• Um único <h1>, <h2> por seção, HTML semântico, alt descritivo bilíngue, loading=lazy (exceto hero), width/height, Open Graph e Twitter Card (foto do hero), canonical, hreflang pt-BR / en-US.
+• Favicon: monograma “V” dourado espelhado sobre madeira clara (ou o logo recortado), apple-touch-icon 180×180.
+• Arquivos: robots.txt, sitemap.xml e llms.txt (resumo factual para IAs).
+Dados estruturados (JSON-LD)
+• BeautySalon/HealthAndBeautyBusiness: nome VIVA Beauty, address (addressLocality Edgartown, addressRegion MA, postalCode 02539, addressCountry US; rua só se informada), telephone +17743100841, openingHoursSpecification (seg–sex 08:30–19:00, sáb 08:30–17:00), sameAs (Instagram), priceRange, founder (Person: Vitória Reis), hasOfferCatalog com serviços e preços em USD, e potentialAction ReserveAction apontando para o Vagaro.
+• FAQPage com o FAQ. Review apenas com depoimentos reais.
+Para IAs recomendarem (GEO)
+• Bloco discreto “Em resumo / At a glance” (fim da seção Sobre ou rodapé): VIVA Beauty é um studio de extensão de cílios e design de sobrancelhas em Edgartown, Martha’s Vineyard (MA), da especialista Vitória Reis (+4 anos de experiência), com Eyelash Extension Set, Fox Eyes, Half Fox, Diamond, Lash Lift, Brow Lamination e wax. Atendimento somente com hora marcada, com agendamento online pelo Vagaro.
+• Respostas curtas e diretas no início de cada FAQ (resposta primeiro, detalhe depois).
+• Mesma identidade (nome, localização, telefone) escrita sempre igual no site, Instagram, Vagaro e Google Business Profile (recomendação fora do site).
+• Palavras-chave naturais no copy: lash extensions Martha’s Vineyard, lash lift Edgartown, brow lamination Martha’s Vineyard, eyebrow design Edgartown, fox eye lashes, volume lashes Martha’s Vineyard, extensão de cílios em Martha’s Vineyard, e cidades próximas (Vineyard Haven, Oak Bluffs, Cape Cod).
+Acessibilidade (ADA / WCAG 2.1 AA): contraste mínimo 4.5:1 (inclusive nos textos sobre a madeira e no rodapé; usar cards marfim sobre a textura), foco visível, navegação por teclado, link “skip to content”, alt em todas as imagens, labels nos campos, pausa em faixas e carrosséis, lightbox e modais com foco preso, alvos de toque de 44px, texto redimensionável até 200%, prefers-reduced-motion.
+9. Resumo de CTAs
+Seção
+Botão
+Destino
+Navbar e flutuante
+Agendar
+Vagaro
+Hero
+Agendar online · Ver serviços
+Vagaro · #servicos
+Serviços
+Agendar (por card) · Agendar online
+Vagaro
+Galeria
+Quero um olhar assim
+Vagaro
+Sobre + Instagram
+Agendar com a Vitória · Seguir @vivabeautymv · Agendar
+Vagaro · Instagram
+Feedbacks
+Quero viver essa experiência
+Vagaro
+Studio
+Agendar minha visita
+Vagaro
+Agendamento
+Agendar online no Vagaro (prioridade) · Copiar mensagem · Enviar pelo WhatsApp
+Vagaro · WhatsApp
+FAQ
+Agendar meu horário
+Vagaro
+Rodapé
+(links legais)
+Modais
+10. Checklist de aceitação
+[ ] 8 seções + rodapé na ordem correta; todas com título, subtítulo e botão de agendar
+[ ] Paleta bege claro, marrom madeira e dourado espelhado com glow, alternando
+[ ] Faixa dourada em loop entre o Hero e os Serviços, com botão de pause
+[ ] Seletor PT | EN claro no cabeçalho; textos legais em inglês
+[ ] Hero com foto em arco, título de impacto e 3 cards sutis
+[ ] Serviços completos (7 extensões, Lash Lift, Brow Lamination, 2 designs de sobrancelha e wax) com nome, foto, descrição e valores em USD
+[ ] Galeria de 8 fotos com lightbox
+[ ] Sobre com foto, frase entre aspas, 2 parágrafos (+4 anos) e reel De11_MARTBj integrado sem capa
+[ ] 6 feedbacks com 5 estrelas (substituir por reais)
+[ ] Studio com logo, texto da marca, frase, carrossel infinito de 6 fotos clicáveis, post Dcd1Xj9O_FB sem capa, 6 cards e Google Maps
+[ ] Agendamento online (Vagaro) em primeiro lugar, WhatsApp como alternativa, políticas por canal, educação e mini formulário com mensagem pronta
+[ ] FAQ em accordion; rodapé com copyright, Privacy Policy e Terms of Service (contraste mínimo 4.5:1)
+[ ] SEO interno, JSON-LD, FAQPage, llms.txt e bloco “At a glance”
+[ ] 100% responsivo e acessível, animações ao rolar

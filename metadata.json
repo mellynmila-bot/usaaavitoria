@@ -1,0 +1,6 @@
+{
+  "name": "VIVA Beauty | Vitória Reis — Lash Extensions & Brow Design",
+  "description": "Extensão de cílios, Fox Eyes, lash lift, brow lamination e design de sobrancelhas em Edgartown, Martha’s Vineyard. Agende online com a Vitória Reis.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
