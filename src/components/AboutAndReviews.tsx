@@ -1,8 +1,18 @@
 import React, { useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
-import { ChevronLeft, ChevronRight, Instagram } from 'lucide-react';
+import {
+  ChevronLeft,
+  ChevronRight,
+  Clock,
+  Droplets,
+  Heart,
+  Instagram,
+  MessageCircle,
+  Sparkles,
+} from 'lucide-react';
 import { Language, siteData, translations } from '../data/siteData';
 import { OrnamentDivider, ResilientImage } from './OrnamentDivider';
+import { LightboxModal, LightboxSlide } from './LightboxModal';
 
 interface AboutAndReviewsProps {
   lang: Language;
@@ -11,6 +21,10 @@ interface AboutAndReviewsProps {
 export const AboutAndReviews: React.FC<AboutAndReviewsProps> = ({ lang }) => {
   const t = translations[lang];
   const shouldReduceMotion = useReducedMotion();
+
+  // Active product photo index for the overlapping circle & lightbox
+  const [selectedProductImgIdx, setSelectedProductImgIdx] = useState(0);
+  const [productLightboxIdx, setProductLightboxIdx] = useState<number | null>(null);
 
   // Mobile arrow navigation state for Reviews (no pause button, manual arrow navigation)
   const [activeReviewIdx, setActiveReviewIdx] = useState(0);
@@ -25,9 +39,27 @@ export const AboutAndReviews: React.FC<AboutAndReviewsProps> = ({ lang }) => {
     setActiveReviewIdx((prev) => (prev + 1) % siteData.testimonials.length);
   };
 
+  const productSlides: LightboxSlide[] = [
+    {
+      url: siteData.product.mainPhoto.url,
+      alt: siteData.product.mainPhoto.alt[lang],
+    },
+    ...siteData.product.productPhotos.map((p) => ({
+      url: p.url,
+      alt: p.alt[lang],
+    })),
+  ];
+
+  const benefitIcons = [
+    <Droplets key="eye" className="w-4 h-4 sm:w-5 sm:h-5 text-[#8F7030]" strokeWidth={1.7} />,
+    <Sparkles key="tech" className="w-4 h-4 sm:w-5 sm:h-5 text-[#8F7030]" strokeWidth={1.7} />,
+    <Clock key="durability" className="w-4 h-4 sm:w-5 sm:h-5 text-[#8F7030]" strokeWidth={1.7} />,
+    <Heart key="daily" className="w-4 h-4 sm:w-5 sm:h-5 text-[#8F7030]" strokeWidth={1.7} />,
+  ];
+
   return (
     <>
-      {/* 6.4 About + Instagram Section (Walnut Wood Background) */}
+      {/* 6.4 About + Vitória's Creations + Instagram Section (Walnut Wood Background) */}
       <section
         id="sobre"
         className="relative py-16 sm:py-24 bg-wood-walnut text-[#F6EFE4] border-b border-[#C29F5B]/50 overflow-hidden"
@@ -162,12 +194,195 @@ export const AboutAndReviews: React.FC<AboutAndReviewsProps> = ({ lang }) => {
             </motion.div>
           </div>
 
-          {/* Gold Divider Before Instagram Sub-Block */}
-          <div className="my-12 sm:my-14">
+          {/* Fine Gold Divider Separating About Content from "Criações da Vitória" */}
+          <div className="my-14 sm:my-16">
             <OrnamentDivider variant="on-wood" />
           </div>
 
-          {/* Instagram Sub-Block (Without "Em resumo" block) */}
+          {/* SUBSECTION: "Criações da Vitória" — Lash Shampoo by Vitória */}
+          <motion.div
+            initial={shouldReduceMotion ? false : { opacity: 0, y: 22 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.65 }}
+            className="space-y-10 sm:space-y-12"
+          >
+            {/* Subsection Header */}
+            <div className="text-center max-w-3xl mx-auto">
+              <p className="text-xs uppercase tracking-[0.24em] text-[#F2DFA7] font-semibold mb-2">
+                {siteData.product.eyebrow[lang]}
+              </p>
+              <h3 className="font-serif-display text-3xl sm:text-4xl lg:text-5xl text-[#F6EFE4] leading-tight text-balance">
+                {siteData.product.titlePart1[lang]}{' '}
+                <span className="text-gold-mirror italic">
+                  {siteData.product.titleHighlight[lang]}
+                </span>
+              </h3>
+              <p className="mt-3 text-base sm:text-lg text-[#F6EFE4]/95 leading-relaxed">
+                {siteData.product.subtitle[lang]}
+              </p>
+            </div>
+
+            {/* Main Visual & Product Story (Side by side on desktop; stacked & centered on mobile) */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 items-center">
+              {/* Left Column: Large Circle with Vitória + Overlapping Smaller Product Circle + 3 Product Photos Underneath */}
+              <div className="lg:col-span-5 flex flex-col items-center space-y-6">
+                {/* Circles Composition */}
+                <div className="relative inline-flex items-center justify-center">
+                  {/* Soft Golden Halo */}
+                  <div
+                    className="absolute -inset-3 rounded-full opacity-55 blur-xl pointer-events-none"
+                    style={{
+                      background:
+                        'radial-gradient(circle, rgba(242,223,167,0.7) 0%, rgba(194,159,91,0.2) 65%, transparent 100%)',
+                    }}
+                    aria-hidden="true"
+                  />
+
+                  {/* Large Circle with Vitória holding the product */}
+                  <button
+                    type="button"
+                    onClick={() => setProductLightboxIdx(0)}
+                    aria-label={siteData.product.mainPhoto.alt[lang]}
+                    className="relative w-64 h-64 sm:w-76 sm:h-76 rounded-full p-[3px] bg-gold-mirror shadow-gold-glow cursor-pointer group focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F2DFA7]"
+                  >
+                    <div className="w-full h-full rounded-full overflow-hidden bg-[#5A3E2B]">
+                      <ResilientImage
+                        src={siteData.product.mainPhoto.url}
+                        alt={siteData.product.mainPhoto.alt[lang]}
+                        loading="lazy"
+                        width={420}
+                        height={420}
+                        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                  </button>
+
+                  {/* Smaller Overlapping Circle on the Bottom-Right Edge */}
+                  <button
+                    type="button"
+                    onClick={() => setProductLightboxIdx(selectedProductImgIdx + 1)}
+                    aria-label={
+                      siteData.product.productPhotos[selectedProductImgIdx].alt[lang]
+                    }
+                    className="absolute -bottom-3 -right-2 sm:bottom-0 sm:-right-3 w-24 h-24 sm:w-28 sm:h-28 rounded-full p-[2.5px] bg-gold-mirror shadow-xl cursor-pointer group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2DFA7] z-10"
+                  >
+                    <div className="w-full h-full rounded-full overflow-hidden bg-[#FBF7F0]">
+                      <ResilientImage
+                        src={siteData.product.productPhotos[selectedProductImgIdx].url}
+                        alt={
+                          siteData.product.productPhotos[selectedProductImgIdx].alt[lang]
+                        }
+                        loading="lazy"
+                        width={160}
+                        height={160}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-108"
+                      />
+                    </div>
+                  </button>
+                </div>
+
+                {/* 3 Product Photos Underneath Her Photo (Gold Border, Interactive) */}
+                <div className="grid grid-cols-3 gap-3 sm:gap-4 w-full max-w-[330px] pt-2">
+                  {siteData.product.productPhotos.map((prodPhoto, idx) => {
+                    const isSelected = selectedProductImgIdx === idx;
+                    return (
+                      <button
+                        key={prodPhoto.id}
+                        type="button"
+                        onClick={() => {
+                          setSelectedProductImgIdx(idx);
+                          setProductLightboxIdx(idx + 1);
+                        }}
+                        aria-label={prodPhoto.alt[lang]}
+                        className={`photo-frame-gold rounded-[10px] p-[2px] cursor-pointer transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2DFA7] ${
+                          isSelected ? 'ring-2 ring-[#F2DFA7]' : 'opacity-90 hover:opacity-100'
+                        }`}
+                      >
+                        <div className="rounded-[8px] overflow-hidden aspect-square bg-[#FBF7F0]">
+                          <ResilientImage
+                            src={prodPhoto.url}
+                            alt={prodPhoto.alt[lang]}
+                            loading="lazy"
+                            width={140}
+                            height={140}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Right Column: Product Card, Benefits & WhatsApp Purchase Button */}
+              <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <div className="card-ivory p-6 sm:p-8 space-y-5 shadow-lg">
+                  {/* Optional Seal: "Lançamento exclusivo" in gold with subtle rose detail */}
+                  <div className="flex justify-center lg:justify-start">
+                    <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-[0.18em] text-[#8F7030] bg-gradient-to-r from-[#F9E8EA] via-[#FBF7F0] to-[#F4E3BD] border border-[#D8A7B1]/70 shadow-2xs">
+                      <span className="text-[#C77D8A]" aria-hidden="true">
+                        ✦
+                      </span>
+                      {siteData.product.seal[lang]}
+                    </span>
+                  </div>
+
+                  {/* Product Name */}
+                  <h4 className="font-serif-display text-2xl sm:text-3xl lg:text-4xl text-[#3F2E22]">
+                    {siteData.product.name[lang]}
+                  </h4>
+
+                  {/* Product Description */}
+                  <p className="text-sm sm:text-base text-[#3F2E22]/90 leading-relaxed">
+                    {siteData.product.description[lang]}
+                  </p>
+
+                  {/* Main Pill Button (Metallic Gold + WhatsApp Icon) */}
+                  <div className="pt-2 flex justify-center lg:justify-start">
+                    <a
+                      href={siteData.product.whatsappLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto btn-gold-primary min-h-[48px] px-8 py-3.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-[0.16em] inline-flex items-center justify-center gap-2.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3F2E22]"
+                    >
+                      <MessageCircle className="w-4 h-4 shrink-0" />
+                      <span>{siteData.product.ctaLabel[lang]}</span>
+                    </a>
+                  </div>
+                </div>
+
+                {/* 4 Benefits Mini Cards (2x2 Grid on Mobile, 4 Columns on Desktop) */}
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-3.5 text-left">
+                  {siteData.product.benefits.map((benefit, bIdx) => (
+                    <div
+                      key={bIdx}
+                      className="card-ivory p-3.5 sm:p-4 flex flex-col justify-between gap-2"
+                    >
+                      <div className="w-8 h-8 rounded-full bg-[#F6EFE4] border border-[#C29F5B]/45 flex items-center justify-center shrink-0">
+                        {benefitIcons[bIdx]}
+                      </div>
+                      <div>
+                        <h5 className="font-serif-display text-base sm:text-lg font-semibold text-[#3F2E22] leading-snug">
+                          {benefit.title[lang]}
+                        </h5>
+                        <p className="mt-1 text-xs text-[#3F2E22]/85 leading-relaxed">
+                          {benefit.text[lang]}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Gold Divider Before Instagram Sub-Block */}
+          <div className="my-14 sm:my-16">
+            <OrnamentDivider variant="on-wood" />
+          </div>
+
+          {/* Instagram Sub-Block */}
           <motion.div
             initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -426,6 +641,28 @@ export const AboutAndReviews: React.FC<AboutAndReviewsProps> = ({ lang }) => {
           </div>
         </div>
       </section>
+
+      {/* Product Lightbox Modal */}
+      <LightboxModal
+        slides={productSlides}
+        currentIndex={productLightboxIdx}
+        onClose={() => setProductLightboxIdx(null)}
+        onPrev={() =>
+          setProductLightboxIdx((prev) =>
+            prev === null ? null : (prev - 1 + productSlides.length) % productSlides.length
+          )
+        }
+        onNext={() =>
+          setProductLightboxIdx((prev) =>
+            prev === null ? null : (prev + 1) % productSlides.length
+          )
+        }
+        labels={{
+          close: t.gallery.lightboxClose,
+          prev: t.gallery.lightboxPrev,
+          next: t.gallery.lightboxNext,
+        }}
+      />
     </>
   );
 };

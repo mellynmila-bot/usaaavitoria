@@ -627,6 +627,118 @@ export const siteData = {
     },
   ] as StudioPhoto[],
 
+  product: {
+    eyebrow: {
+      pt: 'NOVIDADE · LANÇAMENTO',
+      en: 'NEW · EXCLUSIVE LAUNCH',
+    },
+    titlePart1: {
+      pt: 'Criações da',
+      en: 'Vitória’s',
+    },
+    titleHighlight: {
+      pt: 'Vitória',
+      en: 'Creations',
+    },
+    subtitle: {
+      pt: 'Além de transformar olhares, agora a Vitória leva o cuidado dela para a sua rotina. Conheça o primeiro produto da marca.',
+      en: 'Beyond transforming gazes, Vitória now brings her signature care into your daily routine. Meet the brand’s first product.',
+    },
+    seal: {
+      pt: 'Lançamento exclusivo',
+      en: 'Exclusive launch',
+    },
+    name: {
+      pt: 'Lash Shampoo by Vitória',
+      en: 'Lash Shampoo by Vitória',
+    },
+    description: {
+      pt: 'Pensado para quem usa extensão de cílios e quer manter tudo limpo, leve e duradouro. O lash shampoo da Vitória foi desenvolvido com tecnologia de ponta para remover resíduos, oleosidade e maquiagem sem agredir os fios nem a área dos olhos, e sem arder.',
+      en: 'Designed for anyone who wears lash extensions and wants to keep them clean, light, and long-lasting. Vitória’s lash shampoo was developed with advanced technology to remove residue, natural oils, and makeup without harming your lashes or the delicate eye area—and with zero stinging.',
+    },
+    mainPhoto: {
+      url: 'https://i.ibb.co/vCZ1bQLM/Replace-cell-phone-with-product-15d7adc8-2-K.webp',
+      alt: {
+        pt: 'Vitória Reis apresentando o Lash Shampoo by Vitória',
+        en: 'Vitória Reis presenting the Lash Shampoo by Vitória',
+      },
+    },
+    productPhotos: [
+      {
+        id: 1,
+        url: 'https://i.ibb.co/b5N9qMLV/FEED.webp',
+        alt: {
+          pt: 'Lash Shampoo by Vitória — Embalagem oficial do produto',
+          en: 'Lash Shampoo by Vitória — Official product bottle',
+        },
+      },
+      {
+        id: 2,
+        url: 'https://i.ibb.co/Ldbygcpz/image.webp',
+        alt: {
+          pt: 'Lash Shampoo by Vitória — Detalhe da textura e espuma suave',
+          en: 'Lash Shampoo by Vitória — Gentle cleansing foam detail',
+        },
+      },
+      {
+        id: 3,
+        url: 'https://i.ibb.co/KMPzxm3/Meet-your-favorite-beauty-product.webp',
+        alt: {
+          pt: 'Lash Shampoo by Vitória — Seu novo produto favorito de beleza',
+          en: 'Lash Shampoo by Vitória — Meet your favorite beauty product',
+        },
+      },
+    ],
+    benefits: [
+      {
+        title: {
+          pt: 'Não arde os olhos',
+          en: 'Tear-free formula',
+        },
+        text: {
+          pt: 'Fórmula suave, testada para uso na área ocular.',
+          en: 'Gentle formula, tested for safe use around the eyes.',
+        },
+      },
+      {
+        title: {
+          pt: 'Tecnologia avançada',
+          en: 'Advanced technology',
+        },
+        text: {
+          pt: 'Limpeza profunda e delicada, sem agredir a extensão.',
+          en: 'Deep yet delicate cleansing without harming your extensions.',
+        },
+      },
+      {
+        title: {
+          pt: 'Mais durabilidade',
+          en: 'Longer retention',
+        },
+        text: {
+          pt: 'Cílios limpos ajudam na fixação e prolongam o efeito.',
+          en: 'Clean lashes support adhesive retention and prolong your set.',
+        },
+      },
+      {
+        title: {
+          pt: 'Para o dia a dia',
+          en: 'Made for everyday',
+        },
+        text: {
+          pt: 'Uso simples, com resultado profissional em casa.',
+          en: 'Effortless daily use with professional care at home.',
+        },
+      },
+    ],
+    ctaLabel: {
+      pt: 'Quero meu shampoo',
+      en: 'I want my shampoo',
+    },
+    whatsappLink:
+      'https://wa.me/17743100841?text=Ol%C3%A1,%20Vit%C3%B3ria!%20Vi%20o%20lash%20shampoo%20no%20seu%20site%20e%20quero%20comprar.%20Pode%20me%20passar%20os%20detalhes?',
+  },
+
   testimonials: [
     {
       id: 1,
